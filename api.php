@@ -1,34 +1,31 @@
 <?php
-    include ('./database.php');
-
-    $db = new Database();
-    
-    $results = $db->getAllDetails("php_api");
-    $result = json_decode($results,true);
-    
-        echo "
-        <table style='border:1px solid black;'>
-            <thead>
-                <tr>
-                    <th>ID </th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                </tr>
-            </thead>
-            <tbody>
-        ";
-        foreach($result as $r)
+    class api
+    {
+        public $conn = null;
+        public $id;
+        public $name;
+        public $email;
+        private $table_name = "php_api";
+        public function __construct($db)
         {
-            echo "    
-                    <tr>
-                        <td>".$r['id']."</td>
-                        <td>".$r['name']."</td>
-                        <td>".$r['email']."</td>
-                    </tr>
-               
-        ";
+            $this->conn = $db;
         }
-        echo " </tbody>
-        </table>";
-    
+        function getAllDetails()
+        {
+            $result = false;
+            try 
+            {
+                $this->stmt = $this->conn->prepare("select * from ".$this->table_name);
+                $this->stmt->execute();
+                $result = $this->stmt->fetchAll();
+                return json_encode($result);
+            } 
+            catch (Exception $ex) 
+            { 
+                $this->error = $ex->getMessage();
+                echo $this->error; 
+                return false;
+            }
+        }
+    }
 ?>
