@@ -46,6 +46,21 @@
                 return false;
             }
         }
+        function insert($name,$email)
+        {
+            try
+            {
+                $query = "insert into php_api(name,email) values('$name','$email')";
+                $this->stmt = $this->pdo->prepare($query);
+                $this->stmt->execute();
+                return true;  
+            }
+            catch (Exception $ex)
+            {
+                $this->error = $ex->getMessage();
+                return $this->error;
+            }  
+        }
     }
     
 ?>
