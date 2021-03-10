@@ -31,4 +31,9 @@
         echo " </tbody>
         </table>";
     
+    $results = $db->fetchAllDetails(
+            "SELECT * FROM `php_api` WHERE `id` = ?",
+            ["1"]
+          );
+    print_r($results);
 ?>
