@@ -5,7 +5,8 @@
     {
         $name = $_GET['name'];
         $email = $_GET['email'];
-        $result = $db->insert($name,$email);
+        $query = "insert into php_api(name,email) values('$name','$email')";
+        $result = $db->insert($query);
         if($result)
         {
             echo "Inserted successfully...";

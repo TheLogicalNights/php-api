@@ -47,11 +47,10 @@
             }
         }
 
-        function insert($name,$email)
+        function insert($query)
         {
             try
             {
-                $query = "insert into php_api(name,email) values('$name','$email')";
                 $this->stmt = $this->pdo->prepare($query);
                 $this->stmt->execute();
                 return true;  
