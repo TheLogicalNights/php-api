@@ -7,11 +7,11 @@
     
     class Database
     {
-        public $pdo = null;
+        private $pdo = null;
         public $error = "";
         public $stmt = null;
 
-        function getConnection()
+        function __construct()
         {
             try 
             {
@@ -28,7 +28,23 @@
             { 
                 die($ex->getMessage()); 
             }
-            return $this->pdo;
+        }
+        function getAllDetails($table_name)
+        {
+            $result = false;
+            try 
+            {
+                $this->stmt = $this->pdo->prepare("select * from ".$table_name);
+                $this->stmt->execute();
+                $result = $this->stmt->fetchAll();
+                return json_encode($result);
+            } 
+            catch (Exception $ex) 
+            { 
+                $this->error = $ex->getMessage();
+                echo $this->error; 
+                return false;
+            }
         }
     }
     
