@@ -46,6 +46,7 @@
                 return false;
             }
         }
+
         function insert($name,$email)
         {
             try
@@ -60,6 +61,37 @@
                 $this->error = $ex->getMessage();
                 return $this->error;
             }  
+        }
+        function fetchAllDetails($sql,$cond = null)
+        {
+            $result = false;
+            try 
+            {
+                $this->stmt = $this->pdo->prepare($sql);
+                $this->stmt->execute($cond);
+                $result = $this->stmt->fetchAll();
+                return json_encode($result);
+            } 
+            catch (Exception $ex) 
+            { 
+                $this->error = $ex->getMessage(); 
+                return false;
+            }
+        }
+        function updateDetails($sql,$cond)
+        {
+            $result = false;
+            try 
+            {
+                $this->stmt = $this->pdo->prepare($sql);
+                $this->stmt->execute($cond);
+                return true;
+            } 
+            catch (Exception $ex) 
+            { 
+                $this->error = $ex->getMessage(); 
+                return false;
+            }
         }
     }
     
