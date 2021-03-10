@@ -36,4 +36,13 @@
             ["1"]
           );
     print_r($results);
+
+    $ret = $db->updateDetails(
+        "UPDATE `php_api` set `name` = ? where `id` = ?",
+        ["Devarshi Pimpale","5"] 
+    );
+    if ($ret)
+        echo "Update success";
+    else
+        echo "update failure";
 ?>

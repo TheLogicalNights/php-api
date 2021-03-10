@@ -62,6 +62,21 @@
                 return false;
             }
         }
+        function updateDetails($sql,$cond)
+        {
+            $result = false;
+            try 
+            {
+                $this->stmt = $this->pdo->prepare($sql);
+                $this->stmt->execute($cond);
+                return true;
+            } 
+            catch (Exception $ex) 
+            { 
+                $this->error = $ex->getMessage(); 
+                return false;
+            }
+        }
     }
     
 ?>
