@@ -92,6 +92,20 @@
                 return false;
             }
         }
+        function delete($query,$cond)
+        {
+            try
+            {
+                $this->stmt = $this->pdo->prepare($query);
+                $this->stmt->execute($cond);
+                return true;  
+            }
+            catch (Exception $ex)
+            {
+                $this->error = $ex->getMessage();
+                return $this->error;
+            }  
+        }
     }
     
 ?>
