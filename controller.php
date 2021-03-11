@@ -17,8 +17,19 @@
             echo $result;
         }    
     }
-    else
+    if(isset($_GET['id']))
     {
-        echo "POST variables not set";
+        $id = $_GET['id'];
+        $query = "delete from php_api where id = ?";
+        $result = $db->delete($query,[$id]);
+        if($result)
+        {
+            echo "Deleted successfully...";
+        }
+        else
+        {
+            echo $result;
+        }
     }
+    
 ?>
