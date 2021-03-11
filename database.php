@@ -37,7 +37,7 @@
                 $this->stmt = $this->pdo->prepare("select * from ".$table_name);
                 $this->stmt->execute();
                 $result = $this->stmt->fetchAll();
-                return json_encode($result);
+                return json_encode(count($result) == 0 ? null : $result);
             } 
             catch (Exception $ex) 
             { 
@@ -69,7 +69,7 @@
                 $this->stmt = $this->pdo->prepare($sql);
                 $this->stmt->execute($cond);
                 $result = $this->stmt->fetchAll();
-                return json_encode($result);
+                return json_encode(count($result) == 0 ? null : $result);
             } 
             catch (Exception $ex) 
             { 
