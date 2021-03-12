@@ -24,8 +24,9 @@
                         <td>".$r['email']."</td>
                     </tr>
 
-        ";
+                    ";
         }
+        
         echo "  
                 </tbody>
             </table>";
