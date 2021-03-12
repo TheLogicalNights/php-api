@@ -20,12 +20,14 @@
         function readAll()
         {
             $result = $this->app->readAll();
+            
             return json_encode(count($result) == 0 ? null : $result);
         }
         function readOne($id)
         {
             $this->app->id = $id;
             $result = $this->app->readOne();
+            
             return json_encode(count($result) == 0 ? null : $result);
         }
         function insertRecord($data)
@@ -47,6 +49,10 @@
                 $this->app->email = $data->email;
                 $result = $this->app->updateRecord();
                 return $result;
+            }
+            else
+            {
+                http_response_code(404);
             }
         }
         function deleteRecord($id)
