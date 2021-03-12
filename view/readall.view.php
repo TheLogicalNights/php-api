@@ -17,6 +17,16 @@
             echo "Error.....";
         }
     }
+    if (isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+        $result = $read->readOne($id);
+        $data = json_decode($result,true);
+        foreach($data as $row)
+        {
+            echo $row['id']."-".$row['name']."-".$row['email']."<br>";
+        }
+    }
     $result = $read->readAll();
     $result = json_decode($result,true);
     echo "
