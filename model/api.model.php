@@ -14,7 +14,7 @@
         }
         public function readAll()
         {
-            $query = "SELECT * FROM ".$this->table_name;
+            $query = "SELECT * FROM ".$this->table_name." order by id asc";
             //prepare this query
             $stmt = $this->conn->prepare($query);
             // execute query
@@ -56,6 +56,17 @@
             $stmt->bindParam(2,$this->email);
             $stmt->bindParam(3,$this->id);
 
+            if ($stmt->execute())
+                return true;
+            else
+                return false;
+        }
+        public function deleteRecord()
+        {
+            $query = "DELETE FROM ".$this->table_name." where id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->id);
+            
             if ($stmt->execute())
                 return true;
             else
