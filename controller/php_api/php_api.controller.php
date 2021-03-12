@@ -27,7 +27,7 @@
             if(isset($data->name) && isset($data->email))
             {
                 $this->app->name = $data->name;
-                $this->app->email = $data->email2;
+                $this->app->email = $data->email;
                 $result = $this->app->insertRecords();
                 return $result;
             }
