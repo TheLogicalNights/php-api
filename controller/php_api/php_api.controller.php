@@ -2,7 +2,7 @@
     header("Access-Control-Allow-Origin: *");
     //include database and table files
     include ("C:/xampp/htdocs/php-api/model/config/database.php");
-    include ("C:/xampp/htdocs/php-api/model/api.php");
+    include ("C:/xampp/htdocs/php-api/model/api.model.php");
 
     class controller1
     {
