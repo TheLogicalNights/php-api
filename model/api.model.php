@@ -22,6 +22,15 @@
             $result = $stmt->fetchAll();
             return $result;
         }
+        public function readOne()
+        {
+            $query = "SELECT  * FROM  ".$this->table_name." where id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->id);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        }
         public function insertRecords()
         {
             $query = "INSERT into ".$this->table_name."(name,email) values(?,?)";

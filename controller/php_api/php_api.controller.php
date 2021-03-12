@@ -22,6 +22,12 @@
             $result = $this->app->readAll();
             return json_encode(count($result) == 0 ? null : $result);
         }
+        function readOne($id)
+        {
+            $this->app->id = $id;
+            $result = $this->app->readOne();
+            return json_encode(count($result) == 0 ? null : $result);
+        }
         function insertRecord($data)
         {
             if(isset($data->name) && isset($data->email))
