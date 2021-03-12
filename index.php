@@ -9,6 +9,7 @@
 <body>
         <?php 
             include ('./view/readall.view.php');
+            
         ?>
 </body>
 </html>
