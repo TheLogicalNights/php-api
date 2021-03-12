@@ -4,7 +4,7 @@
     $read = new controller1();
     $data=json_decode(file_get_contents("php://input"));
 
-    if (isset($data->name) && isset($data->email))
+    if (isset($data->name) && isset($data->email) && !isset($data->id))
     {
         $result = $read->insertRecord($data);
         if($result)
@@ -16,6 +16,14 @@
         {
             echo "Error.....";
         }
+    }
+    if (isset($data->name) && isset($data->email) && isset($data->id))
+    {
+        $result = $read->updateRecord($data);
+        if ($result)
+            echo "Update successfully";
+        else
+            echo "Error...";
     }
     if (isset($_GET['id']))
     {
