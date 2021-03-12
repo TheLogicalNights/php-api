@@ -4,35 +4,57 @@
     $read = new controller1();
     $data=json_decode(file_get_contents("php://input"));
 
-    if (isset($data->name) && isset($data->email) && !isset($data->id))
+    if ($_SERVER['REQUEST_METHOD'] === 'POST')
     {
-        $result = $read->insertRecord($data);
-        if($result)
+        if (isset($data->name) && isset($data->email) && !isset($data->id))
         {
-            echo gettype($data);
-            echo "Added Successfully.....";
-        }
-        else
-        {
-            echo "Error.....";
+            $result = $read->insertRecord($data);
+            if($result)
+            {
+                echo gettype($data);
+                echo "Added Successfully.....";
+            }
+            else
+            {
+                echo "Error.....";
+            }
         }
     }
-    if (isset($data->name) && isset($data->email) && isset($data->id))
+    if ($_SERVER['REQUEST_METHOD'] === 'PUT')
     {
-        $result = $read->updateRecord($data);
-        if ($result)
-            echo "Update successfully";
-        else
-            echo "Error...";
-    }
-    if (isset($_GET['id']))
-    {
-        $id = $_GET['id'];
-        $result = $read->readOne($id);
-        $data = json_decode($result,true);
-        foreach($data as $row)
+        if (isset($data->name) && isset($data->email) && isset($data->id))
         {
-            echo $row['id']."-".$row['name']."-".$row['email']."<br>";
+            $result = $read->updateRecord($data);
+            if ($result)
+                echo "Update successfully";
+            else
+                echo "Error...";
+        }
+    }
+    if ($_SERVER['REQUEST_METHOD'] === 'DELETE')
+    {
+        if (isset($_GET['id']))
+        {
+            $id = $_GET['id']; 
+            $result = $read->deleteRecord($id);
+            if ($result)
+                echo "Delete successfully";
+            else
+                echo "Error....";
+        }
+    }
+    else
+    {
+        if (isset($_GET['id']))
+        {
+            $id = $_GET['id'];
+            $result = $read->readOne($id);
+            $data = json_decode($result,true);
+            foreach($data as $row)
+            {
+                if (!empty($row['id']))
+                    echo $row['id']."-".$row['name']."-".$row['email']."<br>";
+            }
         }
     }
     $result = $read->readAll();
