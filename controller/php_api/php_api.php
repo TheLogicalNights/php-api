@@ -22,5 +22,15 @@
             $result = $this->app->readAll();
             return json_encode(count($result) == 0 ? null : $result);
         }
+        function insertRecord($data)
+        {
+            if(isset($data->name) && isset($data->email))
+            {
+                $this->app->name = $data->name;
+                $this->app->email = $data->email2;
+                $result = $this->app->insertRecords();
+                return $result;
+            }
+        }
     }
 ?>
