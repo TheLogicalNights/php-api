@@ -48,5 +48,18 @@
                 return false;
             }
         }
+        public function updateRecord()
+        {
+            $query = "UPDATE ".$this->table_name." SET name=?,email=? where id=?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->name);
+            $stmt->bindParam(2,$this->email);
+            $stmt->bindParam(3,$this->id);
+
+            if ($stmt->execute())
+                return true;
+            else
+                return false;
+        }
     }
 ?>
