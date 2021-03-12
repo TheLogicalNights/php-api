@@ -61,6 +61,7 @@
     $result = $read->readAll();
     $result = json_decode($result,true);
     echo "
+            <div>
             <table style='border:1px solid black;'>
                 <thead>
                     <tr>
@@ -85,5 +86,7 @@
         
         echo "  
                 </tbody>
-            </table>";
+            </table>
+            </div>
+            ";
 ?>
