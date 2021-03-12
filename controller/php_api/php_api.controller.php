@@ -38,5 +38,16 @@
                 return $result;
             }
         }
+        function updateRecord($data)
+        {
+            if(isset($data->name) && isset($data->email) && isset($data->id))
+            {
+                $this->app->name = $data->name;
+                $this->app->id = $data->id;
+                $this->app->email = $data->email;
+                $result = $this->app->updateRecord();
+                return $result;
+            }
+        }
     }
 ?>
