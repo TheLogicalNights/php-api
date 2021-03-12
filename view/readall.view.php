@@ -30,6 +30,7 @@
             else
                 echo "Error...";
         }
+       
     }
     if ($_SERVER['REQUEST_METHOD'] === 'DELETE')
     {
