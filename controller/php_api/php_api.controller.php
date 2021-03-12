@@ -49,5 +49,11 @@
                 return $result;
             }
         }
+        function deleteRecord($id)
+        {
+            $this->app->id = $id;
+            $result = $this->app->deleteRecord();
+            return $result;
+        }
     }
 ?>
