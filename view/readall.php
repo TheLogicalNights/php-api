@@ -1,7 +1,17 @@
 <?php
 
-    include ("C:/xampp/htdocs/php-api/controller/php_api/php_api.php");
+    include ("C:/xampp/htdocs/php-api/controller/php_api/php_api.controller.php");
     $read = new controller1();
+    $data=json_decode(file_get_contents("php://input"));
+    $result = $read->insertRecord($data);
+    if($result)
+    {
+        echo "Added Successfully.....";
+    }
+    else
+    {
+        echo "Error.....";
+    }
     $result = $read->readAll();
     $result = json_decode($result,true);
     echo "

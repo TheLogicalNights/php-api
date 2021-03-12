@@ -22,5 +22,22 @@
             $result = $stmt->fetchAll();
             return $result;
         }
+        public function insertRecords()
+        {
+            $query = "INSERT into ".$this->table_name."(name,email) values(?,?)";
+            //prepare this query
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->name);
+            $stmt->bindParam(2,$this->email);
+            // execute query
+            if($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 ?>
