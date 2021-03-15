@@ -1,5 +1,4 @@
 <?php
- 
     include ("C:/xampp/htdocs/php-api/controller/php_api/php_api.controller.php");
     $read = new controller1();
     $data=json_decode(file_get_contents("php://input"));
