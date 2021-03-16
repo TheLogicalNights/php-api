@@ -21,7 +21,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // get jwt
-    $jwt=isset($data->jwt) ? $data->jwt : "";
+    $jwt=isset($_COOKIE['jwt']) ? $_COOKIE['jwt'] : "";
 
     // if jwt is not empty
     if($jwt)
