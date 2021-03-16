@@ -1,5 +1,4 @@
 <?php
-
     class api
     {
         private $conn;

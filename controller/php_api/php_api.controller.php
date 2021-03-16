@@ -4,7 +4,6 @@
     include ("C:/xampp/htdocs/php-api/model/config/database.php");
     include ("C:/xampp/htdocs/php-api/model/api.model.php");
 
-    
     class controller1
     {
         public $db;
@@ -63,4 +62,5 @@
             return $result;
         }
     }
+
 ?>
