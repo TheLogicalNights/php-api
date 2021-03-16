@@ -31,5 +31,23 @@
                 return false;
             }
         }
+        public function updateUser()
+        {
+            $query = "UPDATE ".$this->table_name." SET name=?,email=?,password=? where id=?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->name);
+            $stmt->bindParam(2,$this->email);
+            $stmt->bindParam(3,$this->password);
+            $stmt->bindParam(4,$this->id);
+
+            if ($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 ?>
