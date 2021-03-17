@@ -2,8 +2,9 @@
     // required headers
     header("Access-Control-Allow-Origin: *");
     //include database and table files
-    include ("C:/xampp/htdocs/php-api/model/config/database.php");
-    include ("C:/xampp/htdocs/php-api/model/user.model.php");
+    include ("C:/xampp/htdocs/php-api/model/config/path.php");
+    include ("$model/config/database.php");
+    include ("$model/user.model.php");
 
     //created object of database and table
     $db = new Database();
