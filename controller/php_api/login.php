@@ -8,6 +8,7 @@
 
     include ("C:/xampp/htdocs/php-api/model/config/database.php");
     include ("C:/xampp/htdocs/php-api/model/user.model.php");
+    
     // generate json web token
     include_once 'C:/xampp/htdocs/php-api/model/config/core.php';
     include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/BeforeValidException.php';
@@ -28,7 +29,6 @@
 
     $user->email = $data->email;
     
-
     if ($user->userexists())
     {
         if ($user->checkPass($data->password))
@@ -52,8 +52,7 @@
                                 "jwt" => $jwt
                             )
                 );
-                    http_response_code(200);
-                
+                    http_response_code(200);        
         }
         else
         {
