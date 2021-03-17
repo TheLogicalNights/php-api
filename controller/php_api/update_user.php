@@ -7,16 +7,17 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-    // generate json web token
-    include_once 'C:/xampp/htdocs/php-api/model/config/core.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/BeforeValidException.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/ExpiredException.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/SignatureInvalidException.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/JWT.php';
+    include ("C:/xampp/htdocs/php-api/model/config/path.php");
+    include ("$model/config/database.php");
+    include ("$model/user.model.php");
+    include ("$controller/php_api/validate_token.php");
+    include ("$model/config/core.php");
 
-    include ("C:/xampp/htdocs/php-api/model/config/database.php");
-    include ("C:/xampp/htdocs/php-api/model/user.model.php");
-    include ("C:/xampp/htdocs/php-api/controller/php_api/validate_token.php");
+    // generate json web token
+    include_once "$jwt/BeforeValidException.php";
+    include_once "$jwt/ExpiredException.php";
+    include_once "$jwt/SignatureInvalidException.php";
+    include_once "$jwt/JWT.php";
 
     use \Firebase\JWT\JWT;
 
