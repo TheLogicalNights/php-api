@@ -31,6 +31,14 @@
                 return false;
             }
         }
+        public function deleteUser()
+        {
+            $query = "delete from ".$this->table_name." where id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->id);
+            
+            return $stmt->execute()? true : false;
+        }
         public function updateUser()
         {
             $query = "UPDATE ".$this->table_name." SET name=?,email=?,password=? where id=?";
