@@ -30,14 +30,13 @@
     if(!$user->userexists())
     {
         http_response_code(401);
-        setcookie("jwt",time() - 3600);
+        setcookie("jwt","",time() - 3600);
         echo json_encode(array("message" => "Unable to updated user"));
     }
     else
     {
         // get posted data
         $data = json_decode(file_get_contents("php://input"));
-
         // set product property values
         $user->id = $decoded->data->id;
         $user->name = $data->name;
