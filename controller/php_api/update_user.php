@@ -37,7 +37,6 @@
     {
         // get posted data
         $data = json_decode(file_get_contents("php://input"));
-
         // set product property values
         $user->id = $decoded->data->id;
         $user->name = $data->name;
