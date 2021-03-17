@@ -6,12 +6,13 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+    include ("C:/xampp/htdocs/php-api/model/config/path.php");
+    include_once "$model/config/core.php";
     // generate json web token
-    include_once 'C:/xampp/htdocs/php-api/model/config/core.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/BeforeValidException.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/ExpiredException.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/SignatureInvalidException.php';
-    include_once 'C:/xampp/htdocs/php-api/libs/php-jwt-master/php-jwt-master/src/JWT.php';
+    include_once "$jwt/BeforeValidException.php";
+    include_once "$jwt/ExpiredException.php";
+    include_once "$jwt/SignatureInvalidException.php";
+    include_once "$jwt/JWT.php";
 
 
     
