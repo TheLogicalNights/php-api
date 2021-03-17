@@ -1,10 +1,8 @@
 <?php
-    
-    include ("C:/xampp/htdocs/php-api/model/config/database.php");
-    include ("C:/xampp/htdocs/php-api/model/user.model.php");
-    include ("C:/xampp/htdocs/php-api/controller/php_api/validate_token.php");
-
-    use \Firebase\JWT\JWT;
+    include ("C:/xampp/htdocs/php-api/model/config/path.php");
+    include ("$model/config/database.php");
+    include ("$model/user.model.php");
+    include ("$controller/php_api/validate_token.php");
 
     //created object of database and table
     $db = new Database();
