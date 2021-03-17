@@ -10,4 +10,5 @@ $key = "example_key";
 $issued_at = time();
 $expiration_time = $issued_at + (60 * 60); // valid for 1 hour
 $isuser = "http://localhost/php-api/controller/php_api/login.php";
+
 ?>
