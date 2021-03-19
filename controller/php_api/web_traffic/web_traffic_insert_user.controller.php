@@ -6,7 +6,7 @@
     include ("$model/config/database.model.php");
     include ("$model/traffic.model.php");
 
-    $ip = getenv('REMOTE_ADDR');
+    $ip = $_SERVER['REMOTE_ADDR'];
 
     $db = new Database();
     $conn = $db->getConnection();
