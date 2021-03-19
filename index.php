@@ -8,11 +8,6 @@
     <title>PHP API CRUD</title>
 </head>
 <body>
-        <?php 
-            //include ('./view/readall.view.php');
-            
-            
-            
-        ?>
+    <a href="./view/Test.view.php">Visit</a> 
 </body>
 </html>
