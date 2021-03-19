@@ -36,5 +36,45 @@
                 return $stmt;
             }
         }
+        public function searchByIP($ip)
+        {
+            $query = "select * from ".$this->table_name." where ip_address = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$ip);
+            $stmt->execute();
+            return $stmt;
+        }
+        public function insertUser($ip)
+        {
+            $session = 1;
+            $query = "insert into ".$this->table_name."(ip_address,session) values(?,?)";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$ip);
+            $stmt->bindParam(2,$session);
+            if($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public function updateUser($ip,$updatedsession)
+        {
+            // UPDATE MyGuests SET lastname='Doe' WHERE id=2
+            $query = "update ".$this->table_name." set session = ? where ip_address = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$updatedsession);
+            $stmt->bindParam(2,$ip);
+            if($stmt->execute())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 ?>
