@@ -13,8 +13,7 @@
 
     $stmt = $traffic->viewNewUser();
     $num = $stmt->rowCount();
-    $traffic_details = array();
-    $traffic_details["newusers"] = array();
+    $traffic_record = array();
     if($num>0)
     {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -23,9 +22,8 @@
             $traffic_record = array(
                 "newusers"  => $sessioncount
             );
-            array_push($traffic_details["newusers"],$traffic_record);
             http_response_code(200);
-            echo json_encode($traffic_details);
+            echo json_encode($traffic_record);
         }
     }
     else
