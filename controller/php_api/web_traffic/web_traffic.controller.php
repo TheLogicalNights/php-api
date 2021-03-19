@@ -15,8 +15,7 @@
     $stmt = $trafic->viewTraffic();
 
     $num = $stmt->rowCount();
-    $traffic_details = array();
-    $traffic_details["records"] = array();
+    $traffic_record = array();
     if ($num > 0)
     {
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -26,10 +25,10 @@
                 "ip_count" => $ipcount,
                 "session"  => $sessioncount
             );
-            array_push($traffic_details["records"],$traffic_record);
+            //array_push($traffic_details["records"],$traffic_record);
         }
         http_response_code(200);
-        echo json_encode($traffic_details);
+        echo json_encode($traffic_record);
     }    
     else
     {
