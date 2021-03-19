@@ -4,7 +4,6 @@
     //include database and table files
     include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
     include ("$model/config/database.model.php");
-    //include ("$model/user.model.php");
     include "$model/traffic.model.php";
 
     $db = new Database();
@@ -23,7 +22,7 @@
             extract($row);
             $traffic_record = array(
                 "ip_count" => $ipcount,
-                "session"  => $sessioncount
+                "session_count"  => $sessioncount
             );
             //array_push($traffic_details["records"],$traffic_record);
         }

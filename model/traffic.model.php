@@ -23,5 +23,18 @@
                 return $stmt;
             }
         }
+        public function viewNewUser()
+        {
+            $query = "select count(session) as sessioncount from ".$this->table_name." where session=1";
+            $stmt = $this->conn->prepare($query);
+            if($stmt->execute())
+            {
+                return $stmt;
+            }
+            else
+            {
+                return $stmt;
+            }
+        }
     }
 ?>
