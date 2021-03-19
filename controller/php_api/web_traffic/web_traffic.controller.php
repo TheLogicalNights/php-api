@@ -8,4 +8,6 @@
 
     $db = new Database();
     $conn = $db->getConnection();
+
+    $trafic = new Trafic($conn);
 ?>
