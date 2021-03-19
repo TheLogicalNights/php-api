@@ -6,7 +6,7 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-    include ("C:/xampp/htdocs/php-api/model/config/path.php");
+    include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
     include_once "$model/config/core.php";
     // generate json web token
     include_once "$jwt/BeforeValidException.php";
