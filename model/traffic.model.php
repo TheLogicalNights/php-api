@@ -1,5 +1,5 @@
 <?php
-    class user
+    class Trafic
     {
         private $conn;
         private $table_name = "trafic";
@@ -10,6 +10,7 @@
         {
             $this->conn = $db;
         }
+        
     }
     
 ?>
