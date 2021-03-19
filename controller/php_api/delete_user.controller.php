@@ -1,8 +1,8 @@
 <?php
-    include ("C:/xampp/htdocs/php-api/model/config/path.php");
-    include ("$model/config/database.php");
+    include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
+    include ("$model/config/database.model.php");
     include ("$model/user.model.php");
-    include ("$controller/php_api/validate_token.php");
+    include ("$controller/php_api/validate_token.controller.php");
 
     //created object of database and table
     $db = new Database();
