@@ -10,6 +10,9 @@
         {
             $this->conn = $db;
         }
+        public function viewTraffic()
+        {
+            $query = "select count(ip_address),sum(session) from ".$table_name."";
+        }
     }
-    
 ?>
