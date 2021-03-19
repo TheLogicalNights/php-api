@@ -36,5 +36,5 @@
         echo json_encode(array(
             "message" => "Data not found"
         ));
-    }
+
 ?>
