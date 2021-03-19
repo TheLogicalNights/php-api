@@ -9,7 +9,9 @@
 </head>
 <body>
         <?php 
-            include ('./view/readall.view.php');
+            //include ('./view/readall.view.php');
+            
+            
             
         ?>
 </body>
