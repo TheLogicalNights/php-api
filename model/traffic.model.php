@@ -1,5 +1,5 @@
 <?php
-    class user
+    class Trafic
     {
         private $conn;
         private $table_name = "trafic";
@@ -12,7 +12,7 @@
         }
         public function viewTraffic()
         {
-            $query = "select count(ip_address),sum(session) from ".$table_name."";
+            $query = "select count(ip_address) as ipcount,sum(session) as sessioncount from ".$this->table_name."";
         }
     }
 ?>
