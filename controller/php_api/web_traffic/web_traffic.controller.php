@@ -10,4 +10,9 @@
     $conn = $db->getConnection();
 
     $trafic = new Trafic($conn);
+
+    if($trafic->viewTraffic())
+    {
+        
+    }
 ?>
