@@ -29,5 +29,6 @@
             
             
         ?>
+    <a href="./view/Test.view.php">Visit</a> 
 </body>
 </html>
