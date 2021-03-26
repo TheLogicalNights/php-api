@@ -2,7 +2,7 @@
     class user
     {
         private $conn;
-        private $table_name = "php_api_user";
+        private $table_name = "php_api";
 
         public $id;
 	    public $name;
@@ -15,12 +15,12 @@
         }
         public function createUser()
         {
-            $query = "INSERT into ".$this->table_name."(name,email,password) values(?,?,?)";
+            $query = "INSERT into ".$this->table_name."(name,email) values(?,?)";
             //prepare this query
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(1,$this->name);
             $stmt->bindParam(2,$this->email);
-            $stmt->bindParam(3,$this->password);
+           // $stmt->bindParam(3,$this->password);
             // execute query
             if($stmt->execute())
             {   
@@ -59,17 +59,19 @@
         }
         public function userexists()
         {
-            $query = "select * from ".$this->table_name." where email = ?";
+            $query = "select * from ".$this->table_name." where email =?";
             $stmt = $this->conn->prepare($query);
             $stmt ->bindParam(1,$this->email);
+        
             $stmt->execute();
             if ($stmt->rowCount() > 0)
             {
+                
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
                 $this->id = $row['id'];
                 $this->name = $row['name'];
                 $this->email = $row['email'];
-                $this->password = $row['password'];
+               // $this->password = $row['password'];
                 return true;
             }
             else

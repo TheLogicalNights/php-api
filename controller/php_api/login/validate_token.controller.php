@@ -7,7 +7,7 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
-    include_once "$model/config/core.php";
+    include_once "$model/config/core.model.php";
     // generate json web token
     include_once "$jwt/BeforeValidException.php";
     include_once "$jwt/ExpiredException.php";

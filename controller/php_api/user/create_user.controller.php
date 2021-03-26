@@ -1,6 +1,7 @@
 <?php
     // required headers
     header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
     //include database and table files
     include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
     include ("$model/config/database.model.php");
@@ -18,7 +19,7 @@
     // set product property values
     $user->name = $data->name;
     $user->email = $data->email;
-    $user->password = $data->password;
+    //$user->password = $data->password;
     if($user->createUser())
     {
         http_response_code(200);
