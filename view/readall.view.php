@@ -3,9 +3,9 @@
     $read = new controller1();
     $data=json_decode(file_get_contents("php://input"));
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST')
+  /*  if ($_SERVER['REQUEST_METHOD'] === 'GET')
     {
-        if (isset($data->name) && isset($data->email) && !isset($data->id))
+       /* if (isset($data->name) && isset($data->email) && !isset($data->id))
         {
             $result = $read->insertRecord($data);
             if($result)
@@ -17,75 +17,69 @@
             {
                 echo "Error.....";
             }
-        }
-    }
-    if ($_SERVER['REQUEST_METHOD'] === 'PUT')
+        } 
+    */
+	if (isset($_GET['id']))
     {
-        if (isset($data->name) && isset($data->email) && isset($data->id))
-        {
-            $result = $read->updateRecord($data);
+            $id = $_GET['id'];
+            $result = $read->readOne($id);
             if ($result)
-                echo "Update successfully";
+            {
+                    $data = json_decode($result,true);
+                    foreach($data as $row)
+                    {
+                        if (!empty($row['id']))
+                            echo json_encode(array("name" => $row['name'], "email" => $row['email']));
+                        else
+                            echo json_encode(array("message" =>"Not found"));
+
+                        http_response_code(200);
+                    }
+            }
             else
-                echo "Error...";
-        }
-       
-    }
-    if ($_SERVER['REQUEST_METHOD'] === 'DELETE')
-    {
-        if (isset($_GET['id']))
-        {
-            $id = $_GET['id']; 
-            $result = $read->deleteRecord($id);
-            if ($result)
-                echo "Delete successfully";
-            else
-                echo "Error....";
-        }
+            {
+                http_response_code(404);
+                echo json_encode(array("msg" => "not found"));
+            }
     }
     else
     {
-        if (isset($_GET['id']))
+        $result = $read->readAll();
+    	if ($result)
         {
-            $id = $_GET['id'];
-            $result = $read->readOne($id);
-            $data = json_decode($result,true);
-            foreach($data as $row)
-            {
-                if (!empty($row['id']))
-                    echo $row['id']."-".$row['name']."-".$row['email']."<br>";
-            }
+            http_response_code(200);
+            echo $result;
+        }
+        else
+        {
+            http_response_code(401);
+            echo json_encode(array("msg" => "Not found"));
         }
     }
-    $result = $read->readAll();
-    $result = json_decode($result,true);
-    echo "
-            <div>
-            <table style='border:1px solid black;'>
-                <thead>
-                    <tr>
-                        <th>ID </th>
-                        <th>NAME</th>
-                        <th>EMAIL</th>
-                    </tr>
-                </thead>
-                <tbody>
-        ";
-        foreach($result as $r)
-        {
-            echo "    
-                    <tr>
-                        <td>".$r['id']."</td>
-                        <td>".$r['name']."</td>
-                        <td>".$r['email']."</td>
-                    </tr>
-
-                    ";
-        }
-        
-        echo "  
-                </tbody>
-            </table>
-            </div>
-            ";
+    /*} 
+    // if ($_SERVER['REQUEST_METHOD'] === 'PUT')
+    // {
+    //     if (isset($data->name) && isset($data->email) && isset($data->id))
+    //     {
+    //         $result = $read->updateRecord($data);
+    //         if ($result)
+    //             echo "Update successfully";
+    //         else
+    //             echo "Error...";
+    //     }
+       
+    // }
+    // if ($_SERVER['REQUEST_METHOD'] === 'DELETE')
+    // {
+    //     if (isset($_GET['id']))
+    //     {
+    //         $id = $_GET['id']; 
+    //         $result = $read->deleteRecord($id);
+    //         if ($result)
+    //             echo "Delete successfully";
+    //         else
+    //             echo "Error....";
+    //     }
+    // }
+    */	
 ?>
