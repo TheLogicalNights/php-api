@@ -29,5 +29,15 @@
                 return false;
             }
         }
+        public function readEvents()
+        {
+            $query = "SELECT * from ".$this->table_name." order by date desc";
+            $stmt = $this->conn->prepare($query);
+            // execute query
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            http_response_code(200);
+            return $result;
+        }
     }
 ?>
