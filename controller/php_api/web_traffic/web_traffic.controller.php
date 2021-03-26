@@ -24,7 +24,6 @@
                 "ip_count" => $ipcount,
                 "session_count"  => $sessioncount
             );
-            //array_push($traffic_details["records"],$traffic_record);
         }
         http_response_code(200);
         echo json_encode($traffic_record);
