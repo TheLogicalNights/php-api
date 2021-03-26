@@ -31,7 +31,7 @@
         }
         public function readEvents()
         {
-            $query = "SELECT * from ".$this->table_name."order by id desc";
+            $query = "SELECT * from ".$this->table_name." order by date desc";
             $stmt = $this->conn->prepare($query);
             // execute query
             $stmt->execute();
