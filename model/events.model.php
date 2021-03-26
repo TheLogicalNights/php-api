@@ -39,5 +39,13 @@
             http_response_code(200);
             return $result;
         }
+        function deleteEvent()
+        {
+            $query = "delete from ".$this->table_name." where id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->id);
+            
+            return $stmt->execute()? true : false;
+        }
     }
 ?>
