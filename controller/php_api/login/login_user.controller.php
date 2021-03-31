@@ -58,12 +58,12 @@
         else
         {
             http_response_code(404);
-            echo json_encode(array("message" => "Not login"));
+            echo json_encode(array("message" => "login failure"));
         }
     }
     else
     {
         http_response_code(404);
-        echo json_encode(array("message" => "User not exist"));
+        echo json_encode(array("message" => "User not exist .register first"));
     }
 ?>
