@@ -43,5 +43,15 @@
                 return false;
             }
         }
+        public function readList()
+        {
+            $query = "SELECT * from ".$this->table_name." ORDER BY date ASC";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            http_response_code(200);
+            return $result;
+        }
     }
 ?>
