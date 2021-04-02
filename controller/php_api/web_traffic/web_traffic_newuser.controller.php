@@ -2,7 +2,7 @@
     // required headers
     header("Access-Control-Allow-Origin: *");
     //include database and table files
-    include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
+    include ("/var/www/html/php-api/model/config/path.model.php");
     include ("$model/config/database.model.php");
     include ("$model/traffic.model.php");
     
