@@ -5,8 +5,8 @@
     header("Access-Control-Allow-Headers: *");
 
     //include database and table files
-    include ("C:/xampp/htdocs/php-api/model/config/database.model.php");
-    include ("C:/xampp/htdocs/php-api/model/api.model.php");
+    include ("/var/www/html/php-api/model/config/path.model.php");
+    include ("$model/api.model.php");
 
     class controller1
     {
