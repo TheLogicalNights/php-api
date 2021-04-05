@@ -6,7 +6,7 @@
     header("Access-Control-Max-Age: 3600");
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-    include ("/var/www/html/php-api/model/config/path.model.php");
+    include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
     include ("$model/config/database.php");
     include ("$model/user.model.php");
     include ("$model/config/core.php");
