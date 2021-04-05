@@ -3,7 +3,7 @@
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: *");
     //include database and table files
-    include ("/var/www/html/php-api/model/config/path.model.php");
+    include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
     include ("$model/config/database.model.php");
     include ("$model/blog.model.php");
 
