@@ -16,9 +16,10 @@
     // get posted data
     $data = json_decode(file_get_contents("php://input"));
     
-    // set product property values
+    //set product property values
     $blog->title = $data->title;
     $blog->description = $data->description;
+    $blog->category = $data->category;
 
     if($blog->createBlog())
     {
