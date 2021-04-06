@@ -49,5 +49,15 @@
             
             return $stmt->execute()? true : false;
         }
+        public function readLatestBlog()
+        {
+            $query = "SELECT * from ".$this->table_name." order by date desc LIMIT 4";
+            $stmt = $this->conn->prepare($query);
+            // execute query
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            http_response_code(200);
+            return $result;
+        }
     }
 ?>
