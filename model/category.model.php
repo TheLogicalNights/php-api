@@ -5,7 +5,7 @@
         private $table_name = "category";
 
         public $cat;
-	
+        
         public function __construct($db)
         {
             $this->conn = $db;
@@ -33,6 +33,14 @@
             $result = $stmt->fetchAll();
             http_response_code(200);
             return $result;
+        }
+        public function deleteCategories()
+        {
+            $query = "delete from ".$this->table_name." where cat = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->cat);
+            
+            return $stmt->execute()? true : false;
         }
     }
 ?>
