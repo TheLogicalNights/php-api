@@ -3,11 +3,11 @@
     {
         private $conn;
         private $table_name = "clients";
-        
+
         public $id;
         public $name;
         public $img;
-        
+
         public function __construct($db)
         {
             $this->conn = $db;
@@ -26,6 +26,14 @@
             {
                 return false;
             }
+        }
+        public function deleteService()
+        {
+            $query = "delete from ".$this->table_name." where id = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->id);
+            
+            return $stmt->execute()? true : false;
         }   
     }
 ?>
