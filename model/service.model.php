@@ -29,5 +29,13 @@
                 return false;
             }
         }
+        public function deleteService()
+        {
+            $query = "delete from ".$this->table_name." where sr_no = ?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(1,$this->id);
+            
+            return $stmt->execute()? true : false;
+        }
     }
 ?>
