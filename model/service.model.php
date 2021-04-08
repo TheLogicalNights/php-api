@@ -37,5 +37,15 @@
             
             return $stmt->execute()? true : false;
         }
+        public function readService()
+        {
+            $query = "SELECT * FROM ".$this->table_name.";";
+            $stmt = $this->conn->prepare($query);
+            // execute query
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            http_response_code(200);
+            return $result;
+        }
     }
 ?>
