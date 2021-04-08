@@ -27,7 +27,7 @@
                 return false;
             }
         }
-        public function deleteService()
+        public function deleteClient()
         {
             $query = "delete from ".$this->table_name." where id = ?";
             $stmt = $this->conn->prepare($query);
