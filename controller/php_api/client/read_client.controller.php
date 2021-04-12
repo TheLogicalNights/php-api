@@ -5,7 +5,7 @@
     //include database and table files
     include ("C:/xampp/htdocs/php-api/model/config/path.model.php");
     include ("$model/config/database.model.php");
-    include ("$model/service.model.php");
+    include ("$model/clients.model.php");
 
     //created object of database and table
     $db = new Database();
