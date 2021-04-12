@@ -1,5 +1,5 @@
 <?php
-    class clients
+    class Clients
     {
         private $conn;
         private $table_name = "clients";
